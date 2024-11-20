@@ -14,6 +14,11 @@ make -C src
 If you have an older git, or got ahead of yourself and skipped the ```--recurse-submodules```
 you can fix things by running ```git submodule update --init``` (This is only needed once)
 
+```sh
+make -C src flash # Pour flasher le programme
+make -C src debug # Pour debug avec gdb
+```
+
 # Directories
 * `src` contains your application
 * `lib` contains something shared.
