@@ -114,8 +114,9 @@ LDLIBS += -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group
 all: $(PROJECT).elf $(PROJECT).bin
 flash: $(PROJECT).flash
 
-debug: flash
-	$(GDB) -x ../stm32.gdb awesomesauce.elf
+debug: $(PROJECT).elf flash
+	@printf "  DBG\t$<\n"
+	$(Q)$(GDB) -x ../stm32.gdb $<
 
 # error if not using linker script generator
 ifeq (,$(DEVICE))
