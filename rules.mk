@@ -48,6 +48,7 @@ PREFIX	?= arm-none-eabi-
 CC	= $(PREFIX)gcc
 CXX	= $(PREFIX)g++
 LD	= $(PREFIX)gcc
+GDB = $(PREFIX)gdb
 OBJCOPY	= $(PREFIX)objcopy
 OBJDUMP	= $(PREFIX)objdump
 OOCD	?= openocd
@@ -112,6 +113,9 @@ LDLIBS += -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group
 
 all: $(PROJECT).elf $(PROJECT).bin
 flash: $(PROJECT).flash
+
+debug: flash
+	$(GDB) -x ../stm32.gdb awesomesauce.elf
 
 # error if not using linker script generator
 ifeq (,$(DEVICE))
