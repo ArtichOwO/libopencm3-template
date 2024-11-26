@@ -2,9 +2,8 @@ PROJECT = awesomesauce
 BUILD_DIR = bin
 
 SHARED_DIR = ../lib
-CFILES = 
-CFILES +=
-AFILES += main.S
+CFILES += $(wildcard *.c)
+AFILES += $(wildcard *.S)
 
 # TODO - you will need to edit these two lines!
 DEVICE=stm32f446ret6u
